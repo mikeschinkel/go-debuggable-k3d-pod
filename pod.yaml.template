@@ -17,8 +17,8 @@ spec:
         add:
         - SYS_PTRACE
     ports:
-    - containerPort: 32345
-      hostPort: 32345
+    - containerPort: ${DLV_APP_PORT}
+      hostPort: ${DLV_APP_PORT}
       protocol: TCP
 
 ---
@@ -33,6 +33,6 @@ spec:
   ports:
   - name: dlv-port
     protocol: TCP
-    port: 8000
-    targetPort: 32345
-    nodePort: 30800
+    port: ${DLV_EXTERNAL_PORT}
+    nodePort: ${DLV_CONTAINER_PORT}
+    targetPort: ${DLV_APP_PORT}

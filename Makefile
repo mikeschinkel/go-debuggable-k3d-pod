@@ -1,29 +1,49 @@
 
 .force:
 
+all: install init build deploy
+
+install: .force
+	./util.sh install
+
+init:.force
+	./util.sh init
+
 build:.force
-	docker build -t debuggable-app-image .
+	./util.sh build-docker
 
-debug: .force
-	docker rm \
-		debuggable-app-container 2>/dev/null || true
-	docker create \
-		--name debuggable-app-container \
-		-p 8765:32345 \
-		--security-opt="apparmor=unconfined" \
-		--cap-add=SYS_PTRACE \
-		debuggable-app-image
-	docker start debuggable-app-container
+deploy: push-docker apply
 
-deploy:
-	docker image tag \
-		debuggable-app-image \
-		k3d-registry.localhost:5000/debuggable-app-image:latest
-	docker image push \
-		k3d-registry.localhost:5000/debuggable-app-image:latest
-	make apply
+tag-docker: .force
+	./util.sh tag-docker
+
+push-docker: tag-docker
+	./util.sh push-docker
 
 apply:
-	kubectl delete -f pod.yaml 2>/dev/null || true
-	kubectl apply -f pod.yaml
+	./util.sh apply-kubectl
+
+run: build deploy
+
+cli-debug:.force
+	./util.sh cli-debug
+
+kill-app:.force
+	./util.sh kill-app
+
+standalone-debug: clean-docker create-docker start-docker
+	echo "Docker container with debuggable Go app created"
+
+create-docker: .force
+	./util.sh create-docker
+
+start-docker: .force
+	./util.sh start-docker
+
+clean-docker:
+	./util.sh clean-docker
+
+clean: clean-docker
+	./util.sh clean-k3d
+	./util.sh clean-files
 

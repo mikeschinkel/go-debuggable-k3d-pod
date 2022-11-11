@@ -1,0 +1,18 @@
+---
+apiVersion: k3d.io/v1alpha4
+kind: Simple
+servers: 1
+kubeAPI:
+  hostPort: "6443"
+image: rancher/k3s:v1.23.8-k3s1
+registries:
+  use:
+    - k3d-registry.localhost:5000
+options:
+  k3d:
+    wait: true
+    timeout: "60s"
+ports:
+  - port: ${DLV_EXTERNAL_PORT}:${DLV_CONTAINER_PORT}
+    nodeFilters:
+      - server:0

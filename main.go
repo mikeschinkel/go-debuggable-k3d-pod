@@ -7,10 +7,10 @@ import (
 
 const (
 	DateFormat = "2006-01-02 3:04:05PM"
-	DelayTime  = 3
+	DelayTime  = 5
 )
 
-// Debug with Go Remote = localhost:8000
+// Debug with Go Remote = localhost:8765
 func main() {
 	fmt.Println("Starting Debuggable Pod")
 	for {

@@ -1,0 +1,22 @@
+FROM golang:1.19-alpine AS builder
+
+ENV CGO_ENABLED=0
+
+RUN apk update \
+    && apk add --no-cache git \
+    && go install github.com/go-delve/delve/cmd/dlv@v1.9.1
+
+WORKDIR /app
+
+COPY . /app
+
+RUN go build -o debuggable-go-app -gcflags="all=-N -l" /app/main.go
+
+EXPOSE ${DLV_APP_PORT} ${DLV_APP_PORT}
+
+CMD [ "dlv", \
+    "--listen=:${DLV_APP_PORT}", \
+    "--headless=true", \
+    "--api-version=2", \
+    "--accept-multiclient", \
+    "exec", "/app/debuggable-go-app"]
