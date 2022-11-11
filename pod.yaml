@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: debuggable-pod
+  labels:
+    debugger: dlv
+  annotations:
+    container.apparmor.security.beta.kubernetes.io/debuggable-app-container: unconfined
+spec:
+  restartPolicy: Always
+  containers:
+  - name: debuggable-app-container
+    image: k3d-registry.localhost:5000/debuggable-app-image
+    imagePullPolicy: Always
+    securityContext:
+      capabilities:
+        add:
+        - SYS_PTRACE
+    ports:
+    - containerPort: 32345
+      hostPort: 32345
+      protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dlv-port-service
+spec:
+  type: NodePort
+  selector:
+    debugger: dlv
+  ports:
+  - name: dlv-port
+    protocol: TCP
+    port: 8000
+    targetPort: 32345
+    nodePort: 30800
