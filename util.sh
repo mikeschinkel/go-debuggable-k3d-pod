@@ -62,11 +62,11 @@ function generate_file() {
   (
     echo "# DO NOT EDIT — This file was generated."
     echo "#"
-    echo "#   Edit ${name}${ext}.template instead."
+    echo "#   Edit ${name}${ext}.tmpl instead."
     echo "#"
     echo "# ---------------------------------------------"
     echo "#"
-    envsubst < "./${name}${ext}.template"
+    envsubst < "./${name}${ext}.tmpl"
   ) > "./${name}${ext}"
 }
 

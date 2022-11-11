@@ -4,27 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4f48339-72f3-490a-a774-9b8208a1ec7b" name="Changes" comment="Working code; run make to see it work.">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/go-debuggable-k3d-pod.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/Debug_Pod.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webResources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile.template" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/delve" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k3d.yaml.template" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kubeconfig.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pod.yaml.template" afterDir="false" />
+    <list default="true" id="d4f48339-72f3-490a-a774-9b8208a1ec7b" name="Changes" comment="Working code; run `make` to see it work.&#10;&#10;Instructions to follow.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile.template" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k3d.yaml.template" beforeDir="false" afterPath="$PROJECT_DIR$/k3d.yaml.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pod.yaml.template" beforeDir="false" afterPath="$PROJECT_DIR$/pod.yaml.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util.sh" beforeDir="false" afterPath="$PROJECT_DIR$/util.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +73,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Working code; run make to see it work." />
-    <option name="LAST_COMMIT_MESSAGE" value="Working code; run make to see it work." />
+    <MESSAGE value="Working code; run `make` to see it work.&#10;&#10;Instructions to follow." />
+    <option name="LAST_COMMIT_MESSAGE" value="Working code; run `make` to see it work.&#10;&#10;Instructions to follow." />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
