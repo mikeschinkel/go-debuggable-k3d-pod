@@ -1,6 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Debug Pod" type="GoRemoteDebugConfigurationType" factoryName="Go Remote" port="8765">
-    <option name="disconnectOption" value="ASK" />
-    <method v="2" />
-  </configuration>
-</component>
