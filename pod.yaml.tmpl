@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: Pod
 metadata:
@@ -33,6 +34,5 @@ spec:
   ports:
   - name: dlv-port
     protocol: TCP
-    port: ${DLV_EXTERNAL_PORT}
+    port: ${DLV_APP_PORT}
     nodePort: ${DLV_CONTAINER_PORT}
-    targetPort: ${DLV_APP_PORT}
