@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -o allexport
-source .env
+source ./.env
 set +o allexport
 
 function install() {
