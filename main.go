@@ -7,7 +7,7 @@ import (
 
 const (
 	DateFormat = "2006-01-02 3:04:05PM"
-	DelayTime  = 5
+	DelayTime  = 3
 )
 
 // Debug with Go Remote = localhost:8765
