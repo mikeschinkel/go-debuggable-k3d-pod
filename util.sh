@@ -126,6 +126,17 @@ function tag_docker() {
 		k3d-registry.localhost:5000/debuggable-app-image:latest
 }
 function push_docker() {
+  if [ "" == "$(cat /etc/hosts | grep k3d-registry.localhost)" ] ; then
+    echo "Adding k3d-registry.localhost to /etc/hosts"
+    (
+      printf "\n# This entry added by github.com/mikeschinkel/go-debuggable-k3d-pod"
+      printf "\n127.0.0.1 k3d-registry.localhost"
+      printf "\n"
+    ) > ./k3d-registry-host.txt
+    sudo cp /etc/hosts /etc/hosts.save
+    sudo cat /etc/hosts.save ./k3d-registry-host.txt | sudo tee /etc/hosts >/dev/null
+  	rm -f ./k3d-registry-host.txt
+  fi
 	docker image push \
 		k3d-registry.localhost:5000/debuggable-app-image:latest
 }
